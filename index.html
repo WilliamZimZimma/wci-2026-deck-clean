@@ -1,0 +1,148 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><title>3D Printing & Bioprinting — WCI Deck</title><style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0a0d12;color:#e7edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;padding:30px clamp(12px,3vw,44px) 60px;}
+.wrap{max-width:1180px;margin:0 auto 40px;}
+.title-h{font-size:13px;color:#7f93a6;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:0 2px 12px;}
+.slide{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;container-type:inline-size;box-shadow:0 16px 44px rgba(0,0,0,.5);}
+.slide>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.pad{position:absolute;inset:0;padding:5cqw 6cqw;display:flex;flex-direction:column;justify-content:center;z-index:2;}
+.foot{position:absolute;left:6cqw;bottom:3.6cqw;color:#7b8b9b;font-size:1.02cqw;letter-spacing:.02em;z-index:2;}
+.pg{position:absolute;right:6cqw;bottom:3.6cqw;color:#7b8b9b;font-size:1.02cqw;z-index:2;}
+.eb{color:var(--acc);font-size:1.4cqw;font-weight:700;letter-spacing:.22em;}
+.eb.sm{font-size:1.05cqw;letter-spacing:.24em;color:#8fb8d8;}
+.ttl{color:#fff;font-size:3.7cqw;font-weight:800;letter-spacing:-.01em;margin-top:.5cqw;line-height:1.02;max-width:66cqw;}
+.mod{color:#aab6c2;font-size:1.42cqw;margin-top:.7cqw;max-width:46cqw;}
+/* stacked speaker */
+.spk2{margin-top:.85cqw;}
+.spk2 .role{color:var(--acc);font-size:1.18cqw;font-weight:700;letter-spacing:.13em;text-transform:uppercase;}
+.spk2 .names{color:#dfe7ee;font-size:1.55cqw;font-weight:600;margin-top:.15cqw;}
+/* rows */
+.rows{margin-top:2.3cqw;display:flex;flex-direction:column;gap:1.2cqw;max-width:62cqw;}
+.row{display:grid;grid-template-columns:3.4cqw 1fr;gap:1.2cqw;align-items:start;}
+.num{color:var(--acc);font-weight:800;font-size:2cqw;font-family:ui-monospace,monospace;line-height:1.1;}
+.rh{color:#fff;font-weight:700;font-size:1.82cqw;}
+.rs{color:#c3ced8;font-size:1.36cqw;margin-top:.1cqw;}
+/* cards */
+.cgrid{margin-top:2.1cqw;display:grid;grid-template-columns:1fr 1fr;gap:1.2cqw;max-width:62cqw;}
+.ccard{background:rgba(255,255,255,.035);border-top:.26cqw solid var(--acc);border-radius:.7cqw;padding:1.3cqw 1.6cqw;}
+.ch{color:#fff;font-weight:700;font-size:1.64cqw;}
+.cs{color:#c3ced8;font-size:1.3cqw;margin-top:.35cqw;line-height:1.3;}
+/* list */
+.llist{margin-top:2.1cqw;display:flex;flex-direction:column;gap:1.1cqw;max-width:60cqw;}
+.li{border-left:.34cqw solid var(--acc);padding-left:1.4cqw;}
+.lh{color:#fff;font-weight:700;font-size:1.78cqw;}
+.ls{color:#c3ced8;font-size:1.36cqw;margin-top:.12cqw;}
+/* columns */
+.cols{margin-top:2.3cqw;display:grid;grid-template-columns:repeat(3,1fr);gap:1.3cqw;max-width:66cqw;}
+.col{background:rgba(255,255,255,.05);border-radius:.7cqw;padding:1.5cqw 1.4cqw;border-bottom:.3cqw solid var(--acc);}
+.col .ch2{color:#fff;font-weight:700;font-size:1.55cqw;}
+.col .cs2{color:#c3ced8;font-size:1.28cqw;margin-top:.45cqw;line-height:1.3;}
+/* checklist */
+.klabel{color:var(--acc);font-size:1.3cqw;font-weight:700;letter-spacing:.14em;margin-top:2cqw;}
+.chk{margin-top:1.1cqw;display:flex;flex-direction:column;gap:1.05cqw;max-width:58cqw;}
+.ci{position:relative;padding-left:3cqw;color:#e7edf3;font-size:1.55cqw;line-height:1.32;}
+.ci::before{content:"";position:absolute;left:0;top:.05cqw;width:1.7cqw;height:1.7cqw;border-radius:50%;background:var(--acc);}
+.ci::after{content:"";position:absolute;left:.58cqw;top:.42cqw;width:.5cqw;height:.9cqw;border:.2cqw solid #0a0d12;border-top:0;border-left:0;transform:rotate(42deg);}
+/* graph */
+.pt{color:#fff;font-size:1.68cqw;font-weight:600;padding-left:1.2cqw;border-left:.28cqw solid var(--acc);max-width:44cqw;line-height:1.3;margin-top:1cqw;}
+.gph{margin-top:1.6cqw;}
+.gph svg{width:62cqw;height:19.5cqw;overflow:visible;}
+.gph .gl{stroke:rgba(255,255,255,.09);stroke-width:.4;}
+.gph .cv{fill:none;stroke:var(--acc);stroke-width:1.1;filter:drop-shadow(0 0 2px var(--acc));}
+.gph .pt2{fill:#fff;}
+.gph text{fill:#eaf2fa;font-size:2.6px;font-weight:700;font-family:inherit;}
+.shiftcap{color:#9fabb7;font-size:1.28cqw;margin-top:.95cqw;}
+.kick{color:#cfd8e0;font-size:1.4cqw;max-width:52cqw;line-height:1.35;margin-top:.55cqw;}
+/* title slide */
+.hero-ttl{color:#fff;font-size:4.9cqw;font-weight:800;letter-spacing:-.015em;line-height:1.05;max-width:60cqw;margin-top:.5cqw;}
+.tbar{width:9cqw;height:.34cqw;background:var(--acc);border-radius:2px;margin:1.4cqw 0 1.2cqw;}
+.meta{display:flex;align-items:baseline;gap:.7cqw;color:#c3ced8;font-size:1.32cqw;margin:.28cqw 0;}
+.meta .k{color:var(--acc);font-weight:700;font-size:1.08cqw;letter-spacing:.13em;white-space:nowrap;}
+.vlink{color:inherit;text-decoration:none;border-bottom:1px dashed rgba(120,200,230,.5);}
+.vlink:hover{border-bottom-color:var(--acc);}
+.vlink:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:2px;}
+.proglabel{color:var(--acc);font-size:1.28cqw;font-weight:700;letter-spacing:.16em;margin-top:1.5cqw;}
+.proglist{margin-top:.7cqw;display:flex;flex-direction:column;gap:.5cqw;}
+.pi{display:flex;gap:1.1cqw;align-items:baseline;font-size:1.66cqw;color:#e7edf3;}
+.pi b{color:var(--acc);font-family:ui-monospace,monospace;font-weight:800;}
+/* agenda */
+.agenda{margin-top:2cqw;display:flex;flex-direction:column;gap:.35cqw;max-width:64cqw;}
+.arow{display:grid;grid-template-columns:11cqw 1fr;gap:1.3cqw;align-items:baseline;padding:.7cqw 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.arow .at{color:var(--acc);font-weight:700;font-size:1.55cqw;font-variant-numeric:tabular-nums;}
+.arow .al{color:#e7edf3;font-size:1.64cqw;}
+.arow .al b{color:#fff;font-weight:700;}
+/* twinkle + motion */
+.twk{position:absolute;inset:0;pointer-events:none;z-index:1;}
+.twk i{position:absolute;width:3px;height:3px;border-radius:50%;background:#dff3ff;opacity:.28;box-shadow:0 0 7px 1px rgba(210,240,255,.85);}
+@media (prefers-reduced-motion:no-preference){
+ .slide .bg{animation:breathe 40s ease-in-out infinite;transform-origin:72% 48%;}
+ @keyframes breathe{0%,100%{transform:scale(1.03);}50%{transform:scale(1.055);}}
+ .slide.s-helix .bg{animation:helixdrift 44s ease-in-out infinite;}
+ @keyframes helixdrift{0%,100%{transform:scale(1.04) translateY(0);}50%{transform:scale(1.065) translateY(-1.4%);}}
+ .twk i{animation:twk 6s ease-in-out infinite;}
+ @keyframes twk{0%,100%{opacity:.1;}50%{opacity:.82;}}
+}
+/* notes */
+.notes{background:#11161d;border:1px solid #1e2733;border-radius:12px;padding:16px 20px;margin-top:16px;}
+.notes h3{font-size:13px;color:var(--acc);font-weight:800;letter-spacing:.12em;text-transform:uppercase;}
+.notes ul{margin:9px 0 0;padding-left:18px;}
+.notes li{color:#c3ced8;font-size:13.5px;line-height:1.55;margin:5px 0;}
+.notes li b{color:#e7edf3;}
+.slide.s-move .twk{display:none;}
+@media (prefers-reduced-motion:no-preference){.slide.s-move .bg{animation:shapemove 70s ease-in-out infinite;}@keyframes shapemove{0%,100%{transform:scale(1.05) rotate(-1.2deg);}50%{transform:scale(1.075) rotate(1.4deg) translate(-0.5%,-0.4%);}}}
+/* animations always on for presentation (unguarded) + stronger drift */.slide .bg{animation:breathe 40s ease-in-out infinite;}.slide.s-move .bg{animation:drift2 14s ease-in-out infinite;}.twk i{animation:twk 6s ease-in-out infinite;}@keyframes drift2{0%{transform:scale(1.04) translate(0,0) rotate(0deg);}33%{transform:scale(1.085) translate(-2.4%,-1.7%) rotate(1.2deg);}66%{transform:scale(1.07) translate(1.8%,-0.7%) rotate(-0.9deg);}100%{transform:scale(1.04) translate(0,0) rotate(0deg);}}</style><style>body{padding-top:30px;}.deckhd{max-width:1180px;margin:0 auto 22px;}.deckhd h1{font-size:24px;font-weight:800;letter-spacing:-.02em;color:#e7edf3;}.deckhd p{color:#8fa1b3;font-size:14px;margin-top:6px;}</style><style>.slide>canvas.bg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;animation:none!important;}</style></head><body><div class='deckhd'><h1>3D Printing &amp; Bioprinting in Workers’ Compensation</h1><p>Full deck · 8 slides · WCI 2026 · Devereux PA Cost Containment Innovation Series.</p></div><div class='wrap' id='video'><div class='title-h'>WCI Deck · Slide 1 · Title</div><div class='slide s-move ' style='--acc:#4fe0ee'><canvas class='bg' data-slide='1'></canvas><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb sm'>DEVEREUX PA · COST CONTAINMENT INNOVATION SERIES</div><h1 class='hero-ttl'>3D Printing &amp; Bioprinting in Workers’ Compensation</h1><div class='tbar'></div><div class='meta'><a class='vlink' href='#video'><span class='k'>▶ OPENING VIDEO</span></a><span>From Prototyping Tool to Clinical Reality</span></div><div class='meta'><span class='k'>MODERATOR</span><span>Panel Introduction &amp; Framing</span></div><div class='proglabel'>60-MINUTE PROGRAM</div><div class='proglist'><div class='pi'><b>01</b><span>Technology &amp; process</span></div><div class='pi'><b>02</b><span>Clinical &amp; treatment impact</span></div><div class='pi'><b>03</b><span>Regulation &amp; reimbursement</span></div><div class='pi'><b>04</b><span>Strategic response &amp; Q&amp;A</span></div></div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">1</div></div></div>
+<div class='wrap'><div class='title-h'>WCI Deck · Slide 2 · Program Outline</div><div class='slide s-move' style='--acc:#41f0a8'><canvas class='bg' data-slide='2'></canvas><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb'>PROGRAM OUTLINE</div><h2 class='ttl'>60 Minutes, Six Segments</h2><div class='mod'>Moderator-led panel on 3D printing and bioprinting in workers’ compensation.</div><div class='agenda'><div class='arow'><div class='at'>0–5 min</div><div class='al'>Opening · <b>Setting the stage</b></div></div><div class='arow'><div class='at'>5–18 min</div><div class='al'>Section 1 · <b>Technology &amp; process</b></div></div><div class='arow'><div class='at'>18–31 min</div><div class='al'>Section 2 · <b>Clinical implications</b></div></div><div class='arow'><div class='at'>31–42 min</div><div class='al'>Section 3 · <b>Regulatory landscape</b></div></div><div class='arow'><div class='at'>42–50 min</div><div class='al'>Panel · <b>Cost containment strategy</b></div></div><div class='arow'><div class='at'>50–60 min</div><div class='al'>Q&amp;A · <b>Close &amp; takeaways</b></div></div></div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">2</div></div></div>
+<div class='wrap'><div class='title-h'>WCI Deck · Slide 3 · Opening</div><div class='slide ' style='--acc:#6a9cff'><img alt='' class='bg' src='soft-v5.png'><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb'>OPENING · 0–5 MIN</div><h2 class='ttl'>Setting the Stage</h2><div class='mod'>Moderator introduces the panelists and frames the conversation.</div><div class='pt'>Why 3D printing matters now for workers’ compensation</div><div class='gph'><svg viewBox='0 0 100 40' preserveAspectRatio='none'><line class='gl' x1='0' y1='38' x2='100' y2='38'/><line class='gl' x1='0' y1='26' x2='100' y2='26'/><line class='gl' x1='0' y1='14' x2='100' y2='14'/><path class='cv' d='M2 37 C 30 36, 46 30, 62 18 S 90 4, 98 3'/><circle class='pt2' cx='2' cy='37' r='1.2'/><circle class='pt2' cx='98' cy='3' r='1.4'/><text x='2' y='34.5'>PROTOTYPE</text><text x='100' y='-2.5' text-anchor='end'>CLINICAL REALITY</text></svg></div><div class='shiftcap'>Shift from prototyping tool to clinical reality.</div><div class='kick'>Today’s panel traces that arc — and what it means for cost containment.</div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">3</div></div></div>
+<div class='wrap'><div class='title-h'>WCI Deck · Slide 4 · Section 1</div><div class='slide s-move ' style='--acc:#4fe0ee'><canvas class='bg' data-slide='4'></canvas><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb'>SECTION 1 · 5–18 MIN</div><h2 class='ttl'>History, Mechanism &amp; Evolution</h2><div class='spk2'><div class='role'>Manufacturing Applications Specialists</div><div class='names'>Tyler Bryant &amp; Dave Breiter</div></div><div class='rows'><div class='row'><div class='num'>01</div><div><div class='rh'>3D Printing &amp; Bioprinting Overview</div><div class='rs'>Drawings → materials → scaffolding → printed device</div></div></div><div class='row'><div class='num'>02</div><div><div class='rh'>Medical Applications</div><div class='rs'>Custom implants, joint reconstruction, burn treatment</div></div></div><div class='row'><div class='num'>03</div><div><div class='rh'>Pharmaceutical Delivery</div><div class='rs'>Personalized dosing &amp; compounding</div></div></div><div class='row'><div class='num'>04</div><div><div class='rh'>Where the Technology Stands</div><div class='rs'>Today’s capabilities vs. 3–5 years out</div></div></div></div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">4</div></div></div>
+<div class='wrap'><div class='title-h'>WCI Deck · Slide 5 · Section 2</div><div class='slide ' style='--acc:#6a9cff'><img alt='' class='bg' src='soft-heart-cobalt.png'><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb'>SECTION 2 · 18–31 MIN</div><h2 class='ttl'>Clinical &amp; Treatment Implications</h2><div class='spk2'><div class='role'>Medical Practitioners</div><div class='names'>Dr. Hall &amp; Stacy Whalen</div></div><div class='cgrid'><div class='ccard'><div class='ch'>Entering Treatment Pathways</div><div class='cs'>How printed solutions enter treatment pathways</div></div><div class='ccard'><div class='ch'>Patient Outcomes</div><div class='cs'>Benefits, limitations &amp; open questions</div></div><div class='ccard'><div class='ch'>Recovery &amp; Return to Work</div><div class='cs'>Impact on recovery &amp; return-to-work timelines</div></div><div class='ccard'><div class='ch'>What Specialists Need to Know</div><div class='cs'>Guidance for claims &amp; medical-care specialists now</div></div></div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">5</div></div></div>
+<div class='wrap'><div class='title-h'>WCI Deck · Slide 6 · Section 3</div><div class='slide ' style='--acc:#33d6d2'><img alt='' class='bg' src='soft-v6.png'><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb'>SECTION 3 · 31–42 MIN</div><h2 class='ttl'>Regulatory &amp; Reimbursement Landscape</h2><div class='spk2'><div class='role'>Industry &amp; Claims Experts</div><div class='names'>Dave Breiter &amp; Stacy Whalen</div></div><div class='llist'><div class='li'><div class='lh'>FDA Oversight</div><div class='ls'>Oversight of printed devices &amp; pharmaceuticals</div></div><div class='li'><div class='lh'>Quality &amp; Liability</div><div class='ls'>Standards, liability exposure &amp; chain of custody</div></div><div class='li'><div class='lh'>Reimbursement &amp; Coding</div><div class='ls'>Reimbursement status &amp; coding considerations</div></div><div class='li'><div class='lh'>Future Regulation</div><div class='ls'>What regulation looks like as adoption scales</div></div></div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">6</div></div></div>
+<div class='wrap'><div class='title-h'>WCI Deck · Slide 7 · Panel</div><div class='slide s-move ' style='--acc:#5cf0c0'><canvas class='bg' data-slide='7'></canvas><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb'>PANEL DISCUSSION · 42–50 MIN</div><h2 class='ttl'>Cost Containment &amp; Strategic Response</h2><div class='cols'><div class='col'><div class='ch2'>Opportunities &amp; Risks</div><div class='cs2'>For cost-containment professionals</div></div><div class='col'><div class='ch2'>Proactive Strategies</div><div class='cs2'>For claims &amp; risk-management teams</div></div><div class='col'><div class='ch2'>Standard of Care in 5 Years</div><div class='cs2'>Open question posed to the audience at close</div></div></div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">7</div></div></div>
+<div class='wrap'><div class='title-h'>WCI Deck · Slide 8 · Q&amp;A / Close</div><div class='slide ' style='--acc:#41f0a8'><img alt='' class='bg' src='soft-crystal-emerald.png'><div class='twk'><i style='top:20%;right:17%;animation-delay:0s'></i><i style='top:39%;right:9%;animation-delay:1.6s'></i><i style='top:57%;right:23%;animation-delay:2.9s'></i><i style='top:30%;right:29%;animation-delay:3.7s'></i><i style='top:67%;right:13%;animation-delay:.9s'></i><i style='top:14%;right:11%;animation-delay:2.2s'></i></div><div class='pad'><div class='eb'>Q&amp;A AND CLOSE · 50–60 MIN</div><h2 class='ttl'>Audience Questions &amp; Key Takeaways</h2><div class='klabel'>KEY TAKEAWAYS &amp; RESOURCES</div><div class='chk'><div class='ci'>3D printing has moved from prototyping into clinical practice</div><div class='ci'>Treatment, regulatory &amp; reimbursement pathways are still forming</div><div class='ci'>Cost-containment teams should engage proactively, not reactively</div><div class='ci'>Panelist contacts &amp; reference materials available on request</div></div></div><div class="foot">3D Printing &amp; Bioprinting in Workers’ Compensation</div><div class="pg">8</div></div></div><script>
+function sub(a,b){return[a[0]-b[0],a[1]-b[1],a[2]-b[2]];}
+function add(a,b){return[a[0]+b[0],a[1]+b[1],a[2]+b[2]];}
+function scl(a,s){return[a[0]*s,a[1]*s,a[2]*s];}
+function cross(a,b){return[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];}
+function nrm(a){var l=Math.hypot(a[0],a[1],a[2])||1;return[a[0]/l,a[1]/l,a[2]/l];}
+function ss(e0,e1,x){var t=Math.max(0,Math.min(1,(x-e0)/(e1-e0)));return t*t*(3-2*t);}
+function tube(curve,nu,nv,tr,closed){var Vs=[],E=[];for(var i=0;i<nu;i++){var t=closed?i/nu:i/(nu-1);var c=curve(t),c1=curve(t+0.001),T=nrm(sub(c1,c));var up=Math.abs(T[1])>0.9?[1,0,0]:[0,1,0];var N=nrm(cross(T,up)),B=nrm(cross(T,N));for(var j=0;j<nv;j++){var a=2*Math.PI*j/nv;Vs.push(add(c,add(scl(N,tr*Math.cos(a)),scl(B,tr*Math.sin(a)))));}}function id(i,j){return i*nv+j;}for(var i=0;i<nu;i++)for(var j=0;j<nv;j++){E.push([id(i,j),id(i,(j+1)%nv)]);if(i<nu-1)E.push([id(i,j),id(i+1,j)]);else if(closed)E.push([id(i,j),id(0,j)]);}return{V:Vs,E:E};}
+function grid(fn,nu,nv,wu,wv){var Vs=[],E=[];for(var i=0;i<nu;i++)for(var j=0;j<nv;j++)Vs.push(fn(i/(nu-1),j/(nv-1),i,j));function id(i,j){return i*nv+j;}for(var i=0;i<nu;i++)for(var j=0;j<nv;j++){if(j<nv-1)E.push([id(i,j),id(i,j+1)]);else if(wv)E.push([id(i,j),id(i,0)]);if(i<nu-1)E.push([id(i,j),id(i+1,j)]);else if(wu)E.push([id(i,0),id(0,j)]);}return{V:Vs,E:E};}
+function build(v){
+ if(v==1)return tube(function(t){var a=2*Math.PI*t;return scl([Math.sin(a)+2*Math.sin(2*a),Math.cos(a)-2*Math.cos(2*a),-Math.sin(3*a)],0.62);},150,12,0.26,true);
+ if(v==2)return grid(function(u,vv){var th=Math.PI*u,ph=2*Math.PI*vv;var r=1.55*(1+0.13*Math.sin(6*th)*Math.sin(5*ph));return[r*Math.sin(th)*Math.cos(ph),r*Math.cos(th),r*Math.sin(th)*Math.sin(ph)];},28,42,false,true);
+ if(v==3){var A=tube(function(t){var a=4*Math.PI*t;return[Math.cos(a)*0.85,(t*2-1)*1.9,Math.sin(a)*0.85];},110,7,0.12,false);var B=tube(function(t){var a=4*Math.PI*t+Math.PI;return[Math.cos(a)*0.85,(t*2-1)*1.9,Math.sin(a)*0.85];},110,7,0.12,false);var off=A.V.length,Vs=A.V.concat(B.V),E=A.E.slice();for(var k=0;k<B.E.length;k++)E.push([B.E[k][0]+off,B.E[k][1]+off]);for(var i=0;i<110;i+=7)E.push([i*7,off+i*7]);return{V:Vs,E:E};}
+ if(v==4)return grid(function(u,vv){var th=Math.PI*u,ph=2*Math.PI*vv;var r=1.25*(1+0.32*Math.sin(2*ph)*Math.sin(th)+0.18*Math.cos(3*th)-0.12*Math.pow(Math.cos(th),2));return[r*Math.sin(th)*Math.cos(ph),r*Math.cos(th)*1.05,r*Math.sin(th)*Math.sin(ph)];},30,46,false,true);
+ if(v==5){var n=7,Vs=[],E=[];function id(i,j,k){return(i*n+j)*n+k;}for(var i=0;i<n;i++)for(var j=0;j<n;j++)for(var k=0;k<n;k++){var w=0.12;Vs.push([(i/(n-1)-0.5)*2.7+w*Math.sin(j+k),(j/(n-1)-0.5)*2.7+w*Math.sin(i+k),(k/(n-1)-0.5)*2.7+w*Math.sin(i+j)]);}for(var i=0;i<n;i++)for(var j=0;j<n;j++)for(var k=0;k<n;k++){if(i<n-1)E.push([id(i,j,k),id(i+1,j,k)]);if(j<n-1)E.push([id(i,j,k),id(i,j+1,k)]);if(k<n-1)E.push([id(i,j,k),id(i,j,k+1)]);}return{V:Vs,E:E};}
+ if(v==6){var N=560,Vs=[],E=[],ga=Math.PI*(3-Math.sqrt(5));for(var i=0;i<N;i++){var y=1-(i/(N-1))*2,r=Math.sqrt(1-y*y),th=ga*i;Vs.push([Math.cos(th)*r*1.75,y*1.75,Math.sin(th)*r*1.75]);}for(var i=0;i<N-1;i++){var d=Math.hypot(Vs[i][0]-Vs[i+1][0],Vs[i][1]-Vs[i+1][1],Vs[i][2]-Vs[i+1][2]);if(d<0.6)E.push([i,i+1]);}return{V:Vs,E:E};}
+ if(v==7)return grid(function(u,vv){var x=(u-0.5)*4.4,z=(vv-0.5)*3.1;var y=0.5*(Math.sin(2.4*x)+Math.cos(2.1*z))+0.3*Math.sin(1.7*x+1.3*z);return[x,y,z];},64,40,false,false);
+}
+function rot(p,ax,ay){var cy=Math.cos(ay),sy=Math.sin(ay);var x=p[0]*cy+p[2]*sy,z=-p[0]*sy+p[2]*cy,y=p[1];var cx=Math.cos(ax),sx=Math.sin(ax);return[x,y*cx-z*sx,y*sx+z*cx];}
+var SL={
+1:{s:1,b0:'#05080f',b1:'#0b1626',g:'rgba(14,90,110,.5)',e:'90,200,220',n:'#4fe0ee'},
+2:{s:3,b0:'#02100d',b1:'#063026',g:'rgba(13,90,68,.5)',e:'90,230,170',n:'#41f0a8'},
+3:{s:5,b0:'#050a1a',b1:'#111c46',g:'rgba(26,47,122,.5)',e:'120,160,255',n:'#6a9cff'},
+4:{s:1,b0:'#05080f',b1:'#0b1626',g:'rgba(14,90,110,.5)',e:'90,200,220',n:'#4fe0ee'},
+5:{s:4,b0:'#050a1a',b1:'#111c46',g:'rgba(26,47,122,.5)',e:'120,160,255',n:'#6a9cff'},
+6:{s:6,b0:'#04070f',b1:'#0a1826',g:'rgba(13,58,78,.5)',e:'80,190,200',n:'#33d6d2'},
+7:{s:7,b0:'#040a12',b1:'#0a1e2c',g:'rgba(13,90,82,.5)',e:'120,220,200',n:'#5cf0c0'},
+8:{s:2,b0:'#02100d',b1:'#063026',g:'rgba(13,90,68,.5)',e:'90,230,170',n:'#41f0a8'}};
+function drawSlide(cv,ts){var ctx=cv._x,W=cv._W,H=cv._H,m=cv._m,d=cv._d;
+ var ay=ts*0.00005,ax=-0.5+Math.sin(ts*0.000026)*0.12;
+ var g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,d.b0);g.addColorStop(1,d.b1);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ ctx.globalCompositeOperation='lighter';var rg=ctx.createRadialGradient(W*0.68,H*0.5,0,W*0.68,H*0.5,W*0.5);rg.addColorStop(0,d.g);rg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
+ var CAM=4.7,F=W*0.82,CX=W*0.66,CY=H*0.5;
+ var R=m.V.map(function(p){return rot(p,ax,ay);});var zmin=1e9,zmax=-1e9;R.forEach(function(p){if(p[2]<zmin)zmin=p[2];if(p[2]>zmax)zmax=p[2];});
+ var S=R.map(function(p){var zc=p[2]+CAM,k=F/zc,sx=CX+p[0]*k,sy=CY-p[1]*k;var dn=(p[2]-zmin)/((zmax-zmin)||1),af=(0.12+0.78*dn)*ss(W*0.32,W*0.66,sx);return{sx:sx,sy:sy,k:k,af:af};});
+ ctx.lineWidth=1;m.E.forEach(function(e){var a=S[e[0]],b=S[e[1]],al=Math.min(a.af,b.af)*0.3;if(al<0.012)return;ctx.strokeStyle='rgba('+d.e+','+al.toFixed(3)+')';ctx.beginPath();ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);ctx.stroke();});
+ for(var i=0;i<S.length;i++){var s=S[i];if(s.af<0.02)continue;var rad=Math.max(1,Math.min(3.2,1.7*(s.k/(F/CAM))*10));var hg=ctx.createRadialGradient(s.sx,s.sy,0,s.sx,s.sy,rad*2.4);hg.addColorStop(0,d.n);hg.addColorStop(.5,'rgba(255,255,255,0)');hg.addColorStop(1,'rgba(0,0,0,0)');ctx.globalAlpha=s.af*0.035;ctx.fillStyle=hg;ctx.beginPath();ctx.arc(s.sx,s.sy,rad*2.4,0,7);ctx.fill();ctx.globalAlpha=s.af*0.09;ctx.fillStyle='#78888f';ctx.beginPath();ctx.arc(s.sx,s.sy,rad*0.6,0,7);ctx.fill();}
+ ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
+ var lf=ctx.createLinearGradient(0,0,W*0.62,0);lf.addColorStop(0,d.b1);lf.addColorStop(1,'rgba(0,0,0,0)');ctx.globalAlpha=0.92;ctx.fillStyle=lf;ctx.fillRect(0,0,W*0.62,H);ctx.globalAlpha=1;
+ var bf=ctx.createLinearGradient(0,H,0,H-H*0.24);bf.addColorStop(0,d.b0);bf.addColorStop(1,'rgba(0,0,0,0)');ctx.globalAlpha=0.65;ctx.fillStyle=bf;ctx.fillRect(0,H-H*0.24,W,H*0.24);ctx.globalAlpha=1;}
+function sizeC(cv){var r=cv.getBoundingClientRect();var dpr=Math.min(2,window.devicePixelRatio||1);cv._W=r.width;cv._H=r.height;cv.width=Math.round(r.width*dpr);cv.height=Math.round(r.height*dpr);cv._x=cv.getContext('2d');cv._x.setTransform(dpr,0,0,dpr,0,0);}
+var CVS=[];
+document.querySelectorAll('canvas.bg').forEach(function(cv){var d=SL[+cv.getAttribute('data-slide')];cv._d=d;cv._m=build(d.s);cv._active=false;sizeC(cv);CVS.push(cv);});
+window.addEventListener('resize',function(){CVS.forEach(function(cv){sizeC(cv);});});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target._active=e.isIntersecting;});},{threshold:0.02});
+CVS.forEach(function(cv){io.observe(cv);});
+function loop(ts){for(var i=0;i<CVS.length;i++){if(CVS[i]._active)drawSlide(CVS[i],ts);}requestAnimationFrame(loop);}
+requestAnimationFrame(loop);
+</script></body></html>
