@@ -28,7 +28,7 @@ Presentation-ready copy of `../WCI-2026-Deck-Site/` with all 8 `.notes` divs, th
 - **ALWAYS `git fetch` and diff live vs local vs `origin/main` before editing.** All three can disagree independently. See the 7/21 session log.
 - Deploy: commit + push (auto-deploys), or `vercel --prod --yes` from this folder. Never `vercel --prod` from an uncommitted state — it strands work on the deployment where git can't see it.
 - Over the SSH side-door, `vercel` is not on PATH — export `~/.nvm/versions/node/v22.18.0/bin` first.
-- Both video links are placeholders pending real URLs from William: slide 1 `▶ OPENING VIDEO` (`#video`), slide 4 `▶ HOW 3D PRINTING WORKS` (`#video2`).
+- Slide 1 `▶ OPENING VIDEO` is WIRED (2026-08-17) to https://wci-2026-3d-printing-panel.vercel.app (opens new tab; same change ported to the notes deck). Slide 4 `▶ HOW 3D PRINTING WORKS` (`#video2`) is still a placeholder pending its URL from William.
 
 ## Suggested Improvements
 - Slide 6 subtitle under "Quality & Jurisdictional Compliance" still reads "Standards, liability exposure & chain of custody" — heading and subtitle now disagree. Awaiting William's replacement wording.
